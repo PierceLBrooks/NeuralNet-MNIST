@@ -1,10 +1,22 @@
-// swift-tools-version:3.1
+// swift-tools-version:5.6
 
 import PackageDescription
 
 let package = Package(
     name: "NeuralNet-MNIST",
+    products: [
+        .library(
+            name: "NeuralNet-MNIST",
+            targets: ["NeuralNet-MNIST"]),
+    ],
     dependencies: [
-        .Package(url: "https://github.com/Swift-AI/NeuralNet.git", majorVersion: 0, minor: 3)
+        .package(path: "https://github.com/PierceLBrooks/NeuralNet.git", branch: "master")
+    ],
+    targets: [
+        .target(
+            name: "NeuralNet-MNIST",
+        dependencies: [],
+        path: ".",
+        sources: ["Sources"])
     ]
 )
